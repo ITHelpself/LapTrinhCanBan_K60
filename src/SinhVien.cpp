@@ -23,6 +23,7 @@ void xuatSinhVien(SinhVien *sinhvien);
 float tinhDiemTrungBinh(SinhVien *sinhvien);
 int main(){
     SinhVien *sinhvien;
+    sinhvien=(SinhVien*)(malloc(sizeof(SinhVien)));
     nhapSinhVien(sinhvien);
     xuatSinhVien(sinhvien);
    return 0; 
