@@ -2,14 +2,13 @@
 // nhập, xuất 1 sinh viên: họ tên, giới tính, điểm(toán,lí, hóa)
 // tính điểm trung bình của sinh viên
 // hàm: định nghĩa --> xây dựng --> gọi hàm
-// thư viện hỗ trợ định nghĩa, xây dựng rồi. Chỉ cần gọi hàm
 #include<stdio.h> 
-#include<stdlib.h>// thu viện hỗ trợ cấp phát bộ nhớ
+#include<stdlib.h>
 enum GioiTinh{
     NAM = 1,
     NU = 2
 };// thiếu ;
-typedef struct Diem{// định nghĩa kiểu dữ liệu Diem
+typedef struct Diem{
     float toan;
     float ly;
     float hoa;
@@ -23,24 +22,23 @@ void nhapSinhVien(SinhVien *sinhvien);
 void xuatSinhVien(SinhVien *sinhvien);
 float tinhDiemTrungBinh(SinhVien *sinhvien);
 int main(){
-    SinhVien *sinhvien;// dữ liệu để nhập 1 sinh viên là 1 sinh viên
-    nhapSinhVien(sinhvien);// gọi hàm nhập sinh viên
-    xuatSinhVien(sinhvien);// gọi hàm xuất
+    SinhVien *sinhvien;
+    nhapSinhVien(sinhvien);
+    xuatSinhVien(sinhvien);
    return 0; 
 }
-void nhapSinhVien(SinhVien *sinhvien){// xây dựng hàm nhập sinh viên
+void nhapSinhVien(SinhVien *sinhvien){
     // gets thì thêm fflush
-    fflush(stdin);// kiến thức thì bạn sử dụng google và đọc nhé
-    printf("Nhap ho ten sinh vien: ");// gọi hàm printf
+    fflush(stdin);
+    printf("Nhap ho ten sinh vien: ");
     gets(sinhvien->hoten);
     printf("Nhap gioi tinh: ");
     scanf("%d",&sinhvien->gioitinh);
     printf("Nhap diem:");
     printf("Diem toan: ");
-    // lỗi này do không cấp phát bộ nhớ
     sinhvien->diem = (Diem*)(malloc(sizeof(Diem)));
-    scanf("%f",&sinhvien->diem->toan);// lỗi logic dòng số 32, nhập xong bị đứng
-    printf("Diem ly: ");// copy khi mình đã hiểu, nên copy của mình
+    scanf("%f",&sinhvien->diem->toan);
+    printf("Diem ly: ");
     scanf("%f",&sinhvien->diem->ly);
     printf("Diem hoa: ");
     scanf("%f",&sinhvien->diem->hoa);
@@ -48,18 +46,16 @@ void nhapSinhVien(SinhVien *sinhvien){// xây dựng hàm nhập sinh viên
 void xuatSinhVien(SinhVien *sinhvien){
     float diemtrungbinh = tinhDiemTrungBinh(sinhvien);
     printf("%s \t",sinhvien->hoten);
-    if(sinhvien->gioitinh==NAM){// mỗi con số, kí tự cho vào kiểu enum
+    if(sinhvien->gioitinh==NAM){
         printf("nam \t");  
     }
-    else if(sinhvien->gioitinh==NU){// mỗi con số, kí tự cho vào kiểu enum
+    else if(sinhvien->gioitinh==NU){
         printf("nu \t");  
     }
     else
     {
         printf("khac \t");  
     }
-    // xuất thêm điểm trung bình
-
     printf("%.2f\t %.2f\t %.2f \t%.2f", sinhvien->diem->toan,sinhvien->diem->ly,sinhvien->diem->hoa, diemtrungbinh);
     
 }
