@@ -17,8 +17,8 @@ int tinhLuongNhanVien(NhanVien *nhanvien);
 int main(){
     NhanVien *nhanvien;
     nhanvien=(NhanVien*)(malloc(sizeof(NhanVien)));
-    nhapNhanVien(nhanvien);// test hàm nhập nhân viên, nhập đúng, code cũng không cần feed gì
-    xuatNhanVien(nhanvien);// về xử lí không cần sửa nữa hihi, sửa code thôi
+    nhapNhanVien(nhanvien);
+    xuatNhanVien(nhanvien);
     return 0; 
 }
 void nhapNhanVien(NhanVien *nhanvien){
@@ -36,7 +36,7 @@ void nhapNhanVien(NhanVien *nhanvien){
 }    			
 				
 void xuatNhanVien(NhanVien *nhanvien){
-    int luong; // tinhluong thay bằng tên luong
+    int luong; 
     printf("%s\t", nhanvien->hoten);
     printf("%d\t", nhanvien->tuoi);
     if(nhanvien->gioitinh==NAM){
@@ -55,8 +55,6 @@ void xuatNhanVien(NhanVien *nhanvien){
         printf("%d", luong);
 }
 int tinhLuongNhanVien(NhanVien *nhanvien){
-    // không cần những dòng trên
     int luong = nhanvien ->hesoluong * nhanvien ->thoigianlamviec;
-    return luong;// biến c thay tên luong cho dễ theo dõi
+    return luong;
 }	
-// xong
