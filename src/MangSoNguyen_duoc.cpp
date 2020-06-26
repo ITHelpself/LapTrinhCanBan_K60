@@ -46,9 +46,9 @@ void xuatMang(int *a, int n){
 	}
 }
 int timMax(int *a, int n){
-	int max=*(a+0);
+	int max=*a;
 	for(int i=1;i<n;i++){
-		if(max<*(a+i)){
+		if(*(a+i)>max){
 			max=*(a+i);
 		}
 	}
@@ -68,9 +68,9 @@ void timViTriMax(int *a,int n){
 }
 
 int timMin(int *a, int n){
-	int min=*(a+0);
+	int min=*a;
 	for(int i=1;i<n;i++){
-		if(min>*(a+i)){
+		if(*(a+i)<min){
 			min=*(a+i);
 		}
 	}
