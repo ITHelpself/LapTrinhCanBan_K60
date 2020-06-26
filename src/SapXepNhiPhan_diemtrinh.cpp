@@ -1,10 +1,11 @@
 #include <stdio.h>
 #define size 1000
-void doiCho(int &a, int &b);
+void hoanVi(int &a, int &b);
 void nhapMang(int a[], int &n);
 void xuatMang(int a[], int n);
 void sapXepTangDan(int a[], int n);
-void timKiemNhiPhan(int a[], int x, int left, int right);
+bool tonTaiPhanTu(int a[], int x, int left, int right);// tồn tại phần tử x hay không?
+void kiemTraPhanTuTonTai(int a[],int n, int x);
 int main() {
 	int a[size], n, x;
 	nhapMang(a, n);
@@ -13,7 +14,7 @@ int main() {
 	xuatMang(a, n);
 	printf("Nhap x: ");
 	scanf("%d", &x);
-	timKiemNhiPhan(a, x, 0, n);
+	kiemTraPhanTuTonTai(a,n,x);
 	return 0;
 }
 void nhapMang(int a[], int &n) {
@@ -34,25 +35,38 @@ void sapXepTangDan(int a[], int n) {
 		for(int j=i+1; j<n; j++)
 		{
 			if(a[j] < a[i])
-				doicho(a[i], a[j]);
+				hoanVi(a[i], a[j]);
 		}
 	}
 }
-void doiCho(int &a, int &b) {
+void hoanVi(int &a, int &b) {
 	int temp = a;
 	a = b; 
 	b= temp;
 }
-void timKiemNhiPhan(int a[], int x, int left, int right) {
+bool tonTaiPhanTu(int a[], int x, int left, int right) {
 	if (left >= right)
-		printf("Khong tim thay x!\n");
+		return false;
 	else {
 		int mid = (left + right)/2;
 		if (a[mid]== x)
-			printf("Phan tu %d o vi tri %d\n",x,mid);
+			return true;
 		else if(x > a[mid])
-			timKiemNhiPhan(a, x, mid+1, right);
+			tonTaiPhanTu(a, x, mid+1, right);
 		else if(x< a[mid])
-			timKiemNhiPhan(a, x, left, mid-1);
+			tonTaiPhanTu(a, x, left, mid-1);
 	}
+}
+void kiemTraPhanTuTonTai(int a[],int n, int x){
+	int left = 0;
+	int right = n-1;
+	bool cotontai = tonTaiPhanTu(a, x, left, right);
+	if(cotontai){
+		printf("\nCo phan tu %d trong mang",x);
+	}
+	else
+	{
+		printf("\nKhong co phan tu %d trong mang",x);
+	}
+	
 }
