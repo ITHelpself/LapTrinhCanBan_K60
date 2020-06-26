@@ -23,7 +23,6 @@ int main(){
 	xuatMang(a,n);
 	lietKeViTriMax(a,n);
 	lietKeViTriMin(a,n);
-	laSoNguyenTo(n);
 	lietKeSoNguyenTo(a,n);
 	laMangDuong(a,n);
 	laMangAm(a,n);
@@ -93,15 +92,13 @@ void sapXepTangDan(int *a, int n){
 	}
 }
 bool laSoNguyenTo(int n){
-	if(n<2){
-		return false;
-	}
+	bool flag = true;
 	for(int i=2; i<=sqrt(n); i++){
 		if(n%i==0){
-			return false;
+			flag = false;
 		}
 	}
-	return true;
+	return flag;
 }
 void lietKeSoNguyenTo(int *a, int n){
 	printf("\ncac so nguyen to co trong Mang:");
