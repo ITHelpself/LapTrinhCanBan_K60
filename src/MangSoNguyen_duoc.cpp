@@ -4,8 +4,9 @@
 void nhapMang(int *a, int n);
 void xuatMang(int *a, int n);
 int timMax(int *a, int n);
-void timViTriMax(int *a,int n);
+void lietKeViTriMax(int *a,int n);
 int timMin(int *a, int n);
+void lietKeViTri(int *a, int n, int x);
 void lietKeViTriMin(int *a,int n);
 bool laSoNguyenTo(int n);
 void lietKeSoNguyenTo(int *a, int n);
@@ -20,9 +21,7 @@ int main(){
 	a=(int*)malloc(n*sizeof(int));
 	nhapMang(a,n);
 	xuatMang(a,n);
-	timMax(a,n);
-	timViTriMax(a,n);
-	timMin(a,n);
+	lietKeViTriMax(a,n);
 	lietKeViTriMin(a,n);
 	laSoNguyenTo(n);
 	lietKeSoNguyenTo(a,n);
@@ -54,17 +53,17 @@ int timMax(int *a, int n){
 	}
 	return max;
 }
-void timViTriMax(int *a,int n){
-	int vitri=timMax(a,n);
-	int dem=0;
-	printf("\n\ngia tri lon nhat trong day la %d:",vitri);
+void lietKeViTri(int *a, int n, int x){
 	for(int i=0;i<n;i++){
-		if(*(a+i)==vitri){
-			dem++;
-			printf("\n\nvi tri max trong Mang la:%d",i);
+		if(*(a+i)== x){
+			printf("%d  ",i);
 		}
 	}
-	printf("\n\nco %d vi tri max",dem);
+}
+void lietKeViTriMax(int *a,int n){
+	int max=timMax(a,n);
+	printf("\nmax  = %d o cac vi tri: ",max);
+    lietKeViTri(a,n,max);
 }
 
 int timMin(int *a, int n){
@@ -77,16 +76,9 @@ int timMin(int *a, int n){
 	return min;
 }
 void lietKeViTriMin(int *a,int n){
-	int vitri=timMin(a,n);
-	int dem=0;
-	printf("\n\ngia tri min trong day la:%d,",vitri);
-	for(int i=0;i<n;i++){
-		if(*(a+i)==vitri){
-			dem++;
-			printf("\n\nvi tri min trong Mang la:%d",i);
-		}
-	}
-	printf("\n\nco %d vi tri min",dem);
+	int min=timMin(a,n);
+	printf("\min = %d o cac vi tri:  ",min);
+    lietKeViTri(a,n,min);
 }
 void sapXepTangDan(int *a, int n){
 	for(int i=0; i<n-1; i++){
