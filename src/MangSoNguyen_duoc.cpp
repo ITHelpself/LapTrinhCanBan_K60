@@ -29,6 +29,7 @@ int main(){
 	laMangAm(a,n);
 	laMangCapSoCong(a,n);
 	sapXepTangDan(a,n);
+    xuatMang(a,n);
 	free(a);
 	return 0;
 }
@@ -84,14 +85,12 @@ void sapXepTangDan(int *a, int n){
 	for(int i=0; i<n-1; i++){
 		for(int j=i+1; j<n; j++){
 			if(*(a+i)>*(a+j)){
-				int b=*(a+i);
+				int temp = *(a+i);
 				*(a+i)=*(a+j);
-				*(a+j)=b;
+				*(a+j) = temp;
 			}
 		}
 	}
-	printf("\nMang sap xep tang la :");
-	xuatMang(a,n);
 }
 bool laSoNguyenTo(int n){
 	if(n<2){
