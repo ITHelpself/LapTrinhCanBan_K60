@@ -7,11 +7,11 @@ int timMax(int *a, int n);
 void timViTriMax(int *a,int n);
 int timMin(int *a, int n);
 void lietKeViTriMin(int *a,int n);
-int laSoNguyenTo(int n);
-int lietKeSoNguyenTo(int *a, int n);
-int laMangDuong(int *a, int n);
-int laMangAm(int *a, int n);
-int laMangCapSoCong(int *a, int n);
+bool laSoNguyenTo(int n);
+void lietKeSoNguyenTo(int *a, int n);
+bool laMangDuong(int *a, int n);
+bool laMangAm(int *a, int n);
+bool laMangCapSoCong(int *a, int n);
 void sapXepTangDan(int *a, int n);
 int main(){
 	int *a, n;
@@ -101,7 +101,7 @@ void sapXepTangDan(int *a, int n){
 	printf("\nMang sap xep tang la :");
 	xuatMang(a,n);
 }
-int laSoNguyenTo(int n){
+bool laSoNguyenTo(int n){
 	if(n<2){
 		return false;
 	}
@@ -112,16 +112,15 @@ int laSoNguyenTo(int n){
 	}
 	return true;
 }
-int lietKeSoNguyenTo(int *a, int n){
+void lietKeSoNguyenTo(int *a, int n){
 	printf("\ncac so nguyen to co trong Mang:");
 	for(int i=0; i<n; i++){
 		if(laSoNguyenTo(*(a+i))){
 			printf("%d\t",*(a+i));
 		}
 	}
-	return 0;
 }
-int laMangDuong(int *a, int n){
+bool laMangDuong(int *a, int n){
 	for(int i=0; i<n; i++){
 		if(*(a+i)<0 ){
 			return false;
@@ -132,7 +131,7 @@ int laMangDuong(int *a, int n){
 	}
 	return 0;
 }
-int laMangAm(int *a, int n){
+bool laMangAm(int *a, int n){
 	bool flag = false;
 	for(int i=1; i<n; i++){
 			if(*(a+i)>0 ){
@@ -144,7 +143,7 @@ int laMangAm(int *a, int n){
 	}
 	return 0;
 }
-int laMangCapSoCong(int *a, int n){
+bool laMangCapSoCong(int *a, int n){
 	int d=*(a+1)-*(a+0);
 	for(int i=1; i<n; i++){
 		if(*(a+i)!=*(a+0)+i*d){
