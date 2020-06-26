@@ -1,52 +1,51 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<math.h>
-
-void nhapmang(int *a, int n);
-void xuatmang(int *a, int n);
-int timmax(int *a, int n);
-void timvitrimax(int *a,int n);
-int timmin(int *a, int n);
-void timvitrimin(int *a,int n);
-int kiemtrasonguyento(int n);
-int lietkesonguyento(int *a, int n);
-int kiemtramangsoduong(int *a, int n);
-int kiemtramangsoam(int *a, int n);
-int mangcapsocong(int *a, int n);
-void sapxeptangdan(int *a, int n);
+void nhapMang(int *a, int n);
+void xuatMang(int *a, int n);
+int timMax(int *a, int n);
+void timViTriMax(int *a,int n);
+int timMin(int *a, int n);
+void lietKeViTriMin(int *a,int n);
+int laSoNguyenTo(int n);
+int lietKeSoNguyenTo(int *a, int n);
+int laMangDuong(int *a, int n);
+int laMangAm(int *a, int n);
+int laMangCapSoCong(int *a, int n);
+void sapXepTangDan(int *a, int n);
 int main(){
 	int *a, n;
-	printf("\nnhap so phan tu trong mang:");
+	printf("\nnhap so phan tu trong Mang:");
 	scanf("%d",&n);
 	a=(int*)malloc(n*sizeof(int));
-	nhapmang(a,n);
-	xuatmang(a,n);
-	timmax(a,n);
-	timvitrimax(a,n);
-	timmin(a,n);
-	timvitrimin(a,n);
-	kiemtrasonguyento(n);
-	lietkesonguyento(a,n);
-	kiemtramangsoduong(a,n);
-	kiemtramangsoam(a,n);
-	mangcapsocong(a,n);
-	sapxeptangdan(a,n);
+	nhapMang(a,n);
+	xuatMang(a,n);
+	timMax(a,n);
+	timViTriMax(a,n);
+	timMin(a,n);
+	lietKeViTriMin(a,n);
+	laSoNguyenTo(n);
+	lietKeSoNguyenTo(a,n);
+	laMangDuong(a,n);
+	laMangAm(a,n);
+	laMangCapSoCong(a,n);
+	sapXepTangDan(a,n);
 	free(a);
 	return 0;
 }
-void nhapmang(int *a, int n){
+void nhapMang(int *a, int n){
 	for(int i=0;i<n;i++){
 		printf("\nphan tu thu a[%d]:",i);
 		scanf("%d",(a+i));
 	}
 }
-void xuatmang(int *a, int n){
+void xuatMang(int *a, int n){
 	printf("\n\n a[]:");
 	for(int i=0;i<n;i++){
 		printf("\t%d",*(a+i));
 	}
 }
-int timmax(int *a, int n){
+int timMax(int *a, int n){
 	int max=*(a+0);
 	for(int i=1;i<n;i++){
 		if(max<*(a+i)){
@@ -55,20 +54,20 @@ int timmax(int *a, int n){
 	}
 	return max;
 }
-void timvitrimax(int *a,int n){
-	int vt=timmax(a,n);
+void timViTriMax(int *a,int n){
+	int vitri=timMax(a,n);
 	int dem=0;
-	printf("\n\ngia tri lon nhat trong day la %d:",vt);
+	printf("\n\ngia tri lon nhat trong day la %d:",vitri);
 	for(int i=0;i<n;i++){
-		if(*(a+i)==vt){
+		if(*(a+i)==vitri){
 			dem++;
-			printf("\n\nvi tri max trong mang la:%d",i);
+			printf("\n\nvi tri max trong Mang la:%d",i);
 		}
 	}
 	printf("\n\nco %d vi tri max",dem);
 }
 
-int timmin(int *a, int n){
+int timMin(int *a, int n){
 	int min=*(a+0);
 	for(int i=1;i<n;i++){
 		if(min>*(a+i)){
@@ -77,19 +76,19 @@ int timmin(int *a, int n){
 	}
 	return min;
 }
-void timvitrimin(int *a,int n){
-	int vt=timmin(a,n);
+void lietKeViTriMin(int *a,int n){
+	int vitri=timMin(a,n);
 	int dem=0;
-	printf("\n\ngia tri min trong day la:%d,",vt);
+	printf("\n\ngia tri min trong day la:%d,",vitri);
 	for(int i=0;i<n;i++){
-		if(*(a+i)==vt){
+		if(*(a+i)==vitri){
 			dem++;
-			printf("\n\nvi tri min trong mang la:%d",i);
+			printf("\n\nvi tri min trong Mang la:%d",i);
 		}
 	}
 	printf("\n\nco %d vi tri min",dem);
 }
-void sapxeptangdan(int *a, int n){
+void sapXepTangDan(int *a, int n){
 	for(int i=0; i<n-1; i++){
 		for(int j=i+1; j<n; j++){
 			if(*(a+i)>*(a+j)){
@@ -99,10 +98,10 @@ void sapxeptangdan(int *a, int n){
 			}
 		}
 	}
-	printf("\nmang sap xep tang la :");
-	xuatmang(a,n);
+	printf("\nMang sap xep tang la :");
+	xuatMang(a,n);
 }
-int kiemtrasonguyento(int n){
+int laSoNguyenTo(int n){
 	if(n<2){
 		return false;
 	}
@@ -113,27 +112,27 @@ int kiemtrasonguyento(int n){
 	}
 	return true;
 }
-int lietkesonguyento(int *a, int n){
-	printf("\ncac so nguyen to co trong mang:");
+int lietKeSoNguyenTo(int *a, int n){
+	printf("\ncac so nguyen to co trong Mang:");
 	for(int i=0; i<n; i++){
-		if(kiemtrasonguyento(*(a+i))){
+		if(laSoNguyenTo(*(a+i))){
 			printf("%d\t",*(a+i));
 		}
 	}
 	return 0;
 }
-int kiemtramangsoduong(int *a, int n){
+int laMangDuong(int *a, int n){
 	for(int i=0; i<n; i++){
 		if(*(a+i)<0 ){
 			return false;
 		}
 	}
 	if(true){
-		printf("\n\ntat ca phan tu trong mang deu la so duong");
+		printf("\n\ntat ca phan tu trong Mang deu la so duong");
 	}
 	return 0;
 }
-int kiemtramangsoam(int *a, int n){
+int laMangAm(int *a, int n){
 	bool flag = false;
 	for(int i=1; i<n; i++){
 			if(*(a+i)>0 ){
@@ -141,11 +140,11 @@ int kiemtramangsoam(int *a, int n){
 		}
 	}
 	if(true){
-		printf("\n\nmang toan so am");
+		printf("\n\nMang toan so am");
 	}
 	return 0;
 }
-int mangcapsocong(int *a, int n){
+int laMangCapSoCong(int *a, int n){
 	int d=*(a+1)-*(a+0);
 	for(int i=1; i<n; i++){
 		if(*(a+i)!=*(a+0)+i*d){
