@@ -12,6 +12,9 @@ bool laSoNguyenTo(int n);
 void lietKeSoNguyenTo(int *a, int n);
 bool laMangDuong(int *a, int n);
 bool laMangAm(int *a, int n);
+void kiemTraMangDuong(int *a, int n);
+void kiemTraMangAm(int *a, int n);
+void kiemTraMangLaCapSoCong(int *a, int n);
 bool laMangCapSoCong(int *a, int n);
 void sapXepTangDan(int *a, int n);
 int main(){
@@ -24,9 +27,9 @@ int main(){
 	lietKeViTriMax(a,n);
 	lietKeViTriMin(a,n);
 	lietKeSoNguyenTo(a,n);
-	laMangDuong(a,n);
-	laMangAm(a,n);
-	laMangCapSoCong(a,n);
+	kiemTraMangDuong(a,n);
+    kiemTraMangDuong(a,n);
+    kiemTraMangLaCapSoCong(a,n);
 	sapXepTangDan(a,n);
     xuatMang(a,n);
 	free(a);
@@ -108,38 +111,51 @@ void lietKeSoNguyenTo(int *a, int n){
 		}
 	}
 }
-bool laMangDuong(int *a, int n){
+bool laMangDuong(int *a, int n){// kiểm tra bằng thủ thuật đếm
+    int dem = 0;
 	for(int i=0; i<n; i++){
-		if(*(a+i)<0 ){
-			return false;
+		if(*(a+i)>0 ){
+			dem++;
 		}
 	}
-	if(true){
-		printf("\n\ntat ca phan tu trong Mang deu la so duong");
-	}
-	return 0;
+	return dem == n;
 }
-bool laMangAm(int *a, int n){
-	bool flag = false;
+bool laMangAm(int *a, int n){// kiểm tra bằng thủ thuật đặt lính canh
+	bool flag = true;
 	for(int i=1; i<n; i++){
 			if(*(a+i)>0 ){
-			return flag;
+                flag = false;
+                break;
 		}
 	}
-	if(true){
-		printf("\n\nMang toan so am");
-	}
-	return 0;
+	return flag;
 }
-bool laMangCapSoCong(int *a, int n){
+bool laMangCapSoCong(int *a, int n){// kiểm tra bằng thủ thuật đặt lính canh
+    bool flag = true;
 	int d=*(a+1)-*(a+0);
 	for(int i=1; i<n; i++){
 		if(*(a+i)!=*(a+0)+i*d){
-			return false;
+			flag = false;
+            break;
 		}
 	}
-	if(true){
-		printf("\n\nday vua nhap la 1 cap so cong ");
-	}
-	return 0;
+	return flag;
+}
+void kiemTraMangDuong(int *a, int n){
+    bool mangduong = laMangDuong(a,n);
+    if(mangduong){
+        printf("\nMọi phần tử đều dương!");
+    }
+}
+void kiemTraMangAm(int *a, int n){
+    bool mangam = laMangAm(a,n);
+    if(mangam){
+        printf("\nMọi phần tử đều âm!");
+    }
+}
+void kiemTraMangLaCapSoCong(int *a, int n){
+    bool capsocong = laMangCapSoCong(a,n);
+    if(capsocong){
+        printf("\nmảng tạo thành cấp số cộng!");
+    }
 }
