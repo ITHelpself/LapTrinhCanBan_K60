@@ -1,5 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+// định nghĩa hàm
+int Nhap(float **a);
+void Xuat(float *a, int n);
+int Fibo(float *a,int n);
+int Menu();
+// hàm main
+int main()
+{
+	Menu();
+}
+// xây dựng hàm
 int Nhap(float **a)
 {
     int n;
@@ -100,8 +111,4 @@ int Menu()
 		}
 	}
 
-}
-int main()
-{
-	Menu();
 }
