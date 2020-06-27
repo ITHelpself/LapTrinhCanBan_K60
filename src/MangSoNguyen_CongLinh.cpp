@@ -14,13 +14,15 @@ int main()
 int Nhap(float **a)
 {
     int n;
+    int temp;
 	printf("Nhap so phan tu cua mang:");
 	scanf("%d",&n);
 	*a=(float*)calloc(n,sizeof(float));
 	for(int i=0;i<n;i++)
 	{
 		printf("\na[%d]:",i+1);
-		scanf("%f",*a+i);
+		scanf("%f",&temp);
+        *(*a+i) = temp;
 	}
 	return n;
 }
