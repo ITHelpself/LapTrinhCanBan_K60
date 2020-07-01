@@ -1,41 +1,40 @@
+// thang đo
 #include<stdio.h>
 #define PI 3.141592654
-void nhapDo(float &Do);
-void chuyenDoSangRadian(float Do, float radian);
-float tinhRadian(float Do, float radian);
+void nhapDo(float &a);
+void chuyenDoSangRadian(float a);
+float tinhRadian(float a);
 void nhapRadian(float &radian);
-void chuyenRadianSangDo(float Do, float radian);
-float tinhDo(float Do, float radian);
+void chuyenRadianSangDo(float a);
+float tinhDo(float radian);
 int main(){
-	float Do;
-	float radian;
-	nhapDo(Do);
-	chuyenDoSangRadian(Do, radian);
+	float a;
+    float radian;
+	nhapDo(a);
+	chuyenDoSangRadian(a);
 	nhapRadian(radian);
-	chuyenRadianSangDo(Do, radian);
+	chuyenRadianSangDo(a);
 	return 0;
 }
-void nhapDo(float &Do){
-	printf("\nNhap do = ");
-	scanf("%f", &Do);
+void nhapDo(float &a){
+	printf("\nNhap a = ");
+	scanf("%f", &a);
 }
-void chuyenDoSangRadian(float Do, float radian){
-	radian = tinhRadian(Do, radian);
-	printf(" %.f do chuyen sang radian = %10f", Do, radian);
+void chuyenDoSangRadian(float a){
+	float radian = tinhRadian(a);
+	printf(" %.f a chuyen sang radian = %10f", a, radian);
 }
-float tinhRadian(float Do, float radian){
-	radian = Do * PI / 180;
-	return Do * PI / 180;	
+float tinhRadian(float a){
+	return a * PI / 180;	
 }
 void nhapRadian(float &radian){
 	printf("\nNhap radian = ");
 	scanf("%f", &radian);
 }
-void chuyenRadianSangDo(float Do, float radian){
-	Do = tinhDo(Do, radian);
-	printf(" %.f radian chuyen sang do = %.f", radian, Do);
+void chuyenRadianSangDo(float radian){
+	float a = tinhDo(radian);
+	printf(" %.f radian chuyen sang a = %.f", radian, a);
 }
-float tinhDo(float Do, float radian){
-	Do = radian * 180 / PI;
+float tinhDo(float radian){
 	return radian * 180 / PI;
 }
