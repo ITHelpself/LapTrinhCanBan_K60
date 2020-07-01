@@ -3,10 +3,9 @@ void nhapVND(float &vnd, float &giatriquydoi);
 void xuatUSD(float vnd, float giatriquydoi);
 float tinhUSD(float vnd, float giatriquydoi);
 int main(){
-	float vnd, giatriquydoi;
-	
+	float vnd, giatriquydoi;	
 	nhapVND(vnd, giatriquydoi);
-        xuatUSD(vnd, giatriquydoi);
+    xuatUSD(vnd, giatriquydoi);
 	return 0;
 }
 void nhapVND(float &vnd, float &giatriquydoi){
