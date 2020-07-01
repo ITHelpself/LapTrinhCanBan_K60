@@ -28,11 +28,11 @@ void nhapHeSo(float *a, float *b, float *c)
         printf("\nNhap vao a = ");
         scanf("%f", &temp);
         *a = temp;
-        if (a == 0)
+        if (*a == 0)
         {
             printf("\na = 0, nhập lại!");
         }
-    } while (a == 0);
+    } while (*a == 0);
     printf("\nNhap vao b = ");
     scanf("%f", &temp);
     *b = temp;
