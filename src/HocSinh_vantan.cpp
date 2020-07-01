@@ -41,5 +41,6 @@ void xuatHocSinh(HocSinh *hocsinh){
     printf("\nDiem trung binh: %.2f", diemtrungbinh);  
 }
 float tinhDiemTrungBinh(HocSinh *hocsinh){
-    return (hocsinh->diem->toan + hocsinh->diem ->ly + hocsinh->diem->hoa)/3;
+    int somon = 3;
+    return (hocsinh->diem->toan + hocsinh->diem ->ly + hocsinh->diem->hoa)/somon;
 }
