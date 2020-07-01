@@ -43,10 +43,15 @@ int main()
 void nhapPhanSo(PhanSo *phanso)
 {
     // nh?p t? vŕ m?u
-    printf("Tu so: ");
+    printf("\nTu so: ");
     scanf("%d", &phanso->tu);
-    printf("Mau so: ");
-    scanf("%d", &phanso->mau);
+    do{
+        printf("\nMau so: ");
+        scanf("%d", &phanso->mau);
+        if(phanso->mau == 0){
+            printf("\n mẫu bằng 0, nhập lại:");
+        }
+    } while(phanso->mau ==0);
 }
 void nhapPhanSo(PhanSo *phanso1, PhanSo *phanso2)
 {
