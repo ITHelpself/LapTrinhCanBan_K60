@@ -18,9 +18,9 @@ PhanSo* tichPhanSo(PhanSo *phanso1, PhanSo *phanso2);
 void xuatTichPhanSo(PhanSo *phanso1, PhanSo *phanso2);
 PhanSo* thuongPhanSo(PhanSo *phanso1, PhanSo *phanso2);
 void xuatThuongPhanSo(PhanSo *phanso1, PhanSo *phanso2);
-void doidauPhanSo(PhanSo *phanso);
-float tinhPhanso(PhanSo *phanso);
-int sosanh(PhanSo *phanso1, PhanSo *phanso2);
+void doiDauPhanSo(PhanSo *phanso);
+float chuyenDoiSangSo(PhanSo *phanso);
+int soSanh(PhanSo *phanso1, PhanSo *phanso2);
 int main()
 {
     PhanSo *phanso1, *phanso2, *phanso;
@@ -31,7 +31,7 @@ int main()
     xuatHieuPhanSo(phanso1, phanso2);
     xuatTichPhanSo(phanso1, phanso2);
     xuatThuongPhanSo(phanso1, phanso2);
-    sosanh(phanso1, phanso2);
+    soSanh(phanso1, phanso2);
     free(phanso1);
     free(phanso2);
     return 0;
@@ -55,7 +55,7 @@ void xuatPhanSo(PhanSo *phanso)
 {
     // rút g?n phân s?
     rutGonPhanSo(phanso);
-    doidauPS(phanso);
+    doiDauPhanSo(phanso);
     // in phân s?
     printf("\n%d/%d", phanso->tu, phanso->mau);
 }
@@ -132,21 +132,21 @@ void xuatThuongPhanSo(PhanSo *phanso1, PhanSo *phanso2)
     // xuat phan so
     xuatPhanSo(thuong);
 }
-void doidauPhanSo(PhanSo *phanso)
+void doiDauPhanSo(PhanSo *phanso)
 {
-	if(phanso < 0){
+	if(phanso->mau < 0){
 		phanso->tu = -(phanso->tu);
 		phanso->mau = -(phanso->mau);
 	}
 }
-float tinhPhanSo(PhanSo *phanso)
+float chuyenDoiSangSo(PhanSo *phanso)
 {
 	return (float)phanso->tu / phanso->mau;
 }
-int sosanh(PhanSo *phanso1, PhanSo *phanso2)
+int soSanh(PhanSo *phanso1, PhanSo *phanso2)
 {
-	float a = ab(phanso1);
-	float b = ab(phanso2);
+	float a = chuyenDoiSangSo(phanso1);
+	float b = chuyenDoiSangSo(phanso2);
 	if (a > b)
 	{
 		return a;
