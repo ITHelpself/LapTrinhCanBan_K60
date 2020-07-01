@@ -1,62 +1,83 @@
 #include <stdio.h>
 #include <math.h>
-void nhapSo(float &a, float &b, float &c);
-void kiemTraNghiemPhuongTrinh(float a, float b, float c);
+#include<stdlib.h>
+enum SoNghiem
+{
+    NGHIEM_PHAN_BIET = 2,
+    NGHIEM_KEP = 1,
+    VO_NGHIEM = 0
+};
+void nhapHeSo(float *a, float *b, float *c);
+void giaiPhuongTrinhBacHai(float a, float b, float c, float *x1, float *x2, float *x, int *songhiem);
+void xuatNghiem(float a, float b, float c);
 int main()
 {
-	float a, b, c; 
-	nhapSo(a, b, c);
-	kiemTraNghiemPhuongTrinh(a, b, c);
-	return 0;
+    float *a, *b, *c;
+    a = (float*)malloc(sizeof(float));
+    b = (float*)malloc(sizeof(float));
+    c = (float*)malloc(sizeof(float));
+    nhapHeSo(a, b, c);
+    xuatNghiem(*a, *b, *c);
+    return 0;
 }
-void nhapSo(float &a, float &b, float &c){
-	printf("\nNhap vao a = ");
-	scanf("%f", &a);
-	printf("\nNhap vao b = ");
-	scanf("%f", &b);
-	printf("\nNhap vao c = ");
-	scanf("%f", &c);
+void nhapHeSo(float *a, float *b, float *c)
+{
+    float temp;
+    do
+    {
+        printf("\nNhap vao a = ");
+        scanf("%f", &temp);
+        *a = temp;
+        if (a == 0)
+        {
+            printf("\na = 0, nhập lại!");
+        }
+    } while (a == 0);
+    printf("\nNhap vao b = ");
+    scanf("%f", &temp);
+    *b = temp;
+    printf("\nNhap vao c = ");
+    scanf("%f", &temp);
+    *c = temp;
 }
-void kiemTraNghiemPhuongTrinh(float a, float b, float c){
-	if (a == 0)
-	{
-		if (b == 0) 
-		{
-			if (c == 0)
-				printf("\nPhuong trinh co vo so nghiem");
-			else
-				printf("\nPhuong trinh vo nghiem");
-		}
-		else
-		{
-
-			float x = -c / b;
-
-			printf("\nPhuong trinh co nghiem duy nhat x = %.3f", x);
-		}
-	}
-	else
-	{
-		float Denta = b * b - 4 * a * c;
-
-		if (Denta < 0)
-		{
-			printf("\nPhuong trinh vo nghiem");
-		}
-		else if (Denta == 0)
-		{
-			float x = -b / (2 * a);
-
-			printf("\nPhuong trinh co nghiem kep x1 = x2 = %.3f", x);
-		}
-		else 
-		{
-			float x1 = (-b + sqrt(Denta)) / (2 * a);
-			float x2 = (-b - sqrt(Denta)) / (2 * a);
-
-			printf("\nPhuong trinh co 2 nghiem phan biet:\nx1 = %.3f\nx2 = %.3f", x1, x2);
-
-		}
-	}
-	
+void giaiPhuongTrinhBacHai(float a, float b, float c, float *x1, float *x2, float *x, int *songhiem)
+{
+    float delta = pow(b, 2) - 4 * a * c; // b*b == pow(b,2);
+    if (delta < 0)
+    {
+        *songhiem = VO_NGHIEM;
+    }
+    else if (delta == 0)
+    {
+        *songhiem = NGHIEM_KEP;
+        *x = -b / (2 * a);
+    }
+    else
+    {
+        *songhiem = NGHIEM_PHAN_BIET;
+        *x1 = (-b + sqrt(delta)) / (2 * a);
+        *x2 = (-b - sqrt(delta)) / (2 * a);
+    }
+}
+void xuatNghiem(float a, float b, float c)
+{
+    float *x, *x1, *x2;
+    int *songhiem;
+    x = (float*)(malloc(sizeof(float)));
+    x1 = (float*)(malloc(sizeof(float)));
+    x2 = (float*)(malloc(sizeof(float)));
+    songhiem = (int*)(malloc(sizeof(int)));
+    giaiPhuongTrinhBacHai(a, b, c, x1, x2, x, songhiem);
+    if (*songhiem == VO_NGHIEM)
+    {
+        printf("\n Phuong trinh vo nghiem!");
+    }
+    else if (*songhiem == NGHIEM_KEP)
+    {
+        printf("\n Phuong trinh co mot nghiem kep: x = %.2f",x);
+    }
+    else
+    {
+        printf("\n Phuong trinh co hai nghiem phan biet: x1 = %.2f, x2 = %.2f",*x1,*x2);
+    }
 }
