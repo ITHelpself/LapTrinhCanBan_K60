@@ -13,6 +13,7 @@ typedef struct ThoiGian{
 typedef struct GioHang{
     char magiohang[256];
     SanPham *sanpham;
+    int soluongsanpham;
     ThoiGian *ngaytaogiohang;
 };
 void themGioHang(GioHang *giohang);
