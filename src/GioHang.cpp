@@ -9,3 +9,8 @@ typedef struct ThoiGian{
     int thang;
     int nam;
 };
+typedef struct GioHang{
+    char magiohang[256];
+    SanPham *sanpham;
+    ThoiGian *ngaytaogiohang;
+};
