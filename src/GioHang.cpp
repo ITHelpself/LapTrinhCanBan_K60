@@ -19,7 +19,7 @@ typedef struct GioHang{
 void taoGioHang(GioHang *giohang);
 int taoDanhSachGioHang(GioHang **danhsachgiohang);
 void taoSanPham(SanPham *sanpham);// them mot san pham 
-int kiemTraViTriGioHang(GioHang *danhsachgiohang, int soluong, GioHang *giohang);// tim kiem thong qua ma gio hang
+int timViTriGioHang(GioHang *danhsachgiohang, int soluong, GioHang *giohang);// tim kiem thong qua ma gio hang
 void ThemSanPhamVaoGioHang(GioHang *danhsachgiohang,int soluong, SanPham *sanpham);
 void XoaSanPhamRaGioHang(GioHang *danhsachgiohang,int soluong, SanPham *sanpham);
 void menu(GioHang *giohang);
