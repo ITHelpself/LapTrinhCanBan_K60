@@ -16,9 +16,9 @@ typedef struct GioHang{
     int soluongsanpham;
     ThoiGian *ngaytaogiohang;
 };
-void themGioHang(GioHang *giohang);
-int themDanhSachGioHang(GioHang **danhsachgiohang);
-void themSanPham(SanPham *sanpham);// them mot san pham 
+void taoGioHang(GioHang *giohang);
+int taoDanhSachGioHang(GioHang **danhsachgiohang);
+void taoSanPham(SanPham *sanpham);// them mot san pham 
 int kiemTraViTriGioHang(GioHang *danhsachgiohang, int soluong, GioHang *giohang);// tim kiem thong qua ma gio hang
 void ThemSanPhamVaoGioHang(GioHang *danhsachgiohang,int soluong, SanPham *sanpham);
 void XoaSanPhamRaGioHang(GioHang *danhsachgiohang,int soluong, SanPham *sanpham);
