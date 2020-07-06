@@ -1,3 +1,4 @@
+#include<stdio.h>
 typedef struct SanPham{
     char masanpham[256];
     int tenSanPham[256];
@@ -14,3 +15,15 @@ typedef struct GioHang{
     SanPham *sanpham;
     ThoiGian *ngaytaogiohang;
 };
+void themGioHang(GioHang *giohang);
+int themDanhSachGioHang(GioHang **danhsachgiohang);
+void themSanPham(SanPham *sanpham);// them mot san pham 
+int timKiemGioHang(GioHang *danhsachgiohang, int soluong, GioHang *giohang);// tim kiem thong qua ma gio hang
+bool gioHangHopLe(GioHang *danhsachgiohang, int soluong, GioHang *giohang);
+void ThemSanPhamVaoGioHang(GioHang *danhsachgiohang,int soluong, SanPham *sanpham);
+void XoaSanPhamRaGioHang(GioHang *danhsachgiohang,int soluong, SanPham *sanpham);
+void menu(GioHang *giohang);
+int main(){
+    return 0;
+}
+// TODO: xây dung cac ham dua tren nguyen mau ham ben tren
