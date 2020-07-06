@@ -3,4 +3,9 @@ typedef struct SanPham{
     int tenSanPham[256];
     int soluong;
     float dongia;
-}
+};
+typedef struct ThoiGian{
+    int ngay;
+    int thang;
+    int nam;
+};
