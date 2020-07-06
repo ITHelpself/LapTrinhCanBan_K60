@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include<stdlib.h>
+// TODO: fix lỗi enums
 enum SoNghiem
 {
     NGHIEM_PHAN_BIET = 2,
