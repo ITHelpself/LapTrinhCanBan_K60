@@ -12,9 +12,9 @@ void xuat(int n){
 	printf("\n so phan tu n la: %d",n);
 }
 
-int tinhF(int i, long s){
+int tinhF(long s){
     int n;
-	for(i; i<n;i++){
+	for(int i; i<n;i++){
 	printf("\n tong cua day so co %d phan tu la %ld" ,n ,s);}
 }
 
