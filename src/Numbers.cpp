@@ -6,7 +6,7 @@ enum SortOption{
 void addElement(int numbers[],int *size, int element); // thêm một element vào cuối mảng
 bool insertElement(int numbers[], int *size, int element, int index);// thêm 1 element vào vị trí bất kì trong mảng
 void appendToHead(int numbers[], int *size, int numbersToAppend[], int sizeOfNumbersToAppend);// chèn một mảng vào đầu một mảng khác
-void appendToEnd(int numbers[], int *size, int numbersToAppend[], int sizeOfNumbersToAppend);// chèn một mảng vào cuối mảng khác
+void appendToTail(int numbers[], int *size, int numbersToAppend[], int sizeOfNumbersToAppend);// chèn một mảng vào cuối mảng khác
 bool update(int numbers[], int size, int value, int index);// thay đổi giá trị value tại vị trí index
 bool deleteByIndex(int numbers[], int *size, int index);// xóa thông qua index nhập vào
 bool deleteByValue(int numbers[], int *size, int value);// xóa các phần tử có value nhập vào
