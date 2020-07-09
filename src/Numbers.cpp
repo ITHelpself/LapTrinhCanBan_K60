@@ -19,7 +19,7 @@ int findValueOfIndex(int numbers[], int size, int index);// giá trị của ph�
 int sort(int numbers[], int size, SortOption option);// sắp xếp theo option được nhập vào
 void OrderByASC(int numbers[], int size);// sắp xếp tăng dần
 void OrderByDEC(int numbers[], int size);// sắp xếp giảm dần
-void isEmpty(int numbers[], int size);
+bool isEmpty(int numbers[], int size);
 bool isChild(int numbers[], int size, int checkerNumbers[], int sizeOfCheckerNumbers);
 bool isParent(int number[], int size, int checkerNumbers[], int sizeOfCheckerNumbers);
 bool existPrime(int numbers[], int size);// kiểm tra mảng có tồn tại số nguyên tố hay không?
