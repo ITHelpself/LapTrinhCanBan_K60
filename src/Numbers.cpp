@@ -17,8 +17,8 @@ int findMaxValue(int numbers[],int size);// tìm max mảng
 int findMinValue(int numbers[], int size);// tìm min mảng
 int findValueOfIndex(int numbers[], int size, int index);// giá trị của phần tử tại vị trí thứ index
 int sort(int numbers[], int size, SortOption option);// sắp xếp theo option được nhập vào
-void OrderByASC(int numbers[], int size);// sắp xếp tăng dần
-void OrderByDEC(int numbers[], int size);// sắp xếp giảm dần
+void orderByASC(int numbers[], int size);// sắp xếp tăng dần
+void orderByDEC(int numbers[], int size);// sắp xếp giảm dần
 bool isEmpty(int numbers[], int size);
 bool isChild(int numbers[], int size, int checkerNumbers[], int sizeOfCheckerNumbers);
 bool isParent(int number[], int size, int checkerNumbers[], int sizeOfCheckerNumbers);
