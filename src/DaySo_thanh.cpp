@@ -11,7 +11,7 @@ int main(){
 	xuat(n);
 	 return 0;
 }
-
+// thêm comment
 void nhap(int &n){
 	printf("\n nhap n: ");
 	scanf("%d",&n);
