@@ -15,6 +15,7 @@ void sapXepSinhVienTheoDTB(SinhVien a[], int n);
 float kiemTraSinhVienDTBCaoNhat(SinhVien a[], int n);
 void xuatSinhVienDTBCaoNhat(SinhVien a[], int n);
 void timKiemSVTheoTen(SinhVien a[], int n);
+void hoanVi(SinhVien &a, SinhVien &b);
 int main(){
     int n;
     printf("\nnhap so luong sinh vien trong danh sach:");
@@ -60,14 +61,18 @@ void xuatDanhSachSinhVien(SinhVien a[], int n){
         xuat(a[i]);
     }
 }
+void hoanVi(SinhVien &a,SinhVien &b){
+    SinhVien temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
 void sapXepSinhVienTheoDTB(SinhVien a[], int n){
     SinhVien temp;
     for(int i = 0; i < n - 1; i++){
         for(int j = i + 1; j < n; j++){
             if(tinhDiemTrungBinh(a[i]) > tinhDiemTrungBinh(a[j])){
-                temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
+                hoanVi(a[i],a[j]);
             }
         }
     }
