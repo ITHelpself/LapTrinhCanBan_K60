@@ -5,7 +5,6 @@ typedef struct SinhVien{
     char gioiTinh[5];
     int tuoi;
     float diemToan, diemLy, diemHoa;
-    float diemTrungBinh = 0;
 };
 void nhap(SinhVien &sv);
 void nhapDanhSachSinhVien(SinhVien a[], int n); 
@@ -28,8 +27,8 @@ int main(){
     timKiemSVTheoTen(a, n);
     return 0;
 }
-void tinhDiemTrungBinh(SinhVien &sv){
-    sv.diemTrungBinh = (sv.diemToan + sv.diemLy + sv.diemHoa)/3;    
+float tinhDiemTrungBinh(SinhVien &sv){
+    return (sv.diemToan + sv.diemLy + sv.diemHoa)/3;    
 }
 void nhap(SinhVien &sv){
     fflush(stdin);
