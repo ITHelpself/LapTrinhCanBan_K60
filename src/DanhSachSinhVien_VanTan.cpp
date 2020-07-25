@@ -12,7 +12,7 @@ void xuat(SinhVien sv);
 void xuatDanhSachSinhVien(SinhVien a[], int n);
 float tinhDiemTrungBinh(SinhVien &sv);
 void sapXepSinhVienTheoDTB(SinhVien a[], int n);
-float kiemTraSinhVienDTBCaoNhat(SinhVien a[], int n);
+SinhVien timKiemSinhVienDTBCaoNhat(SinhVien a[], int n);
 void xuatSinhVienDTBCaoNhat(SinhVien a[], int n);
 void timKiemSVTheoTen(SinhVien a[], int n);
 void hoanVi(SinhVien &a, SinhVien &b);
@@ -77,22 +77,16 @@ void sapXepSinhVienTheoDTB(SinhVien a[], int n){
         }
     }
 }
-float kiemTraSinhVienDTBCaoNhat(SinhVien a[], int n){
-    float diemCaoNhat = 0;
-    char c[20];
-    for(int i = 0; i < n; i++){
-	if(diemCaoNhat < tinhDiemTrungBinh(a[i])){
-		diemCaoNhat = tinhDiemTrungBinh(a[i]);
-	}
-    }
-    return diemCaoNhat;
+SinhVien timKiemSinhVienDTBCaoNhat(SinhVien a[], int n){
+    sapXepSinhVienTheoDTB(a,n);
+    return a[n-1];// sau khi sắp xếp, sinh viên có điểm tb cao nhất ở cuối
 }
 void xuatSinhVienDTBCaoNhat(SinhVien a[], int n){
-    float kiemTra = kiemTraSinhVienDTBCaoNhat(a, n);
-    printf("\nSinh vien co DTB cao nhat la: %.2f", kiemTra);
+    SinhVien sinhvientimkiem= timKiemSinhVienDTBCaoNhat(a,n);
+    printf("\nSinh vien co DTB cao nhat la: %.2f", tinhDiemTrungBinh(sinhvien));
     int b;
     for(int i = 0; i < n; i++){
-	if(kiemTra == tinhDiemTrungBinh(a[i])){
+	if(tinhDiemTrungBinh(sinhvientimkiem) == tinhDiemTrungBinh(a[i])){
 		b = i;
 	}
     }
