@@ -10,7 +10,7 @@ void nhap(SinhVien &sv);
 void nhapDanhSachSinhVien(SinhVien a[], int n); 
 void xuat(SinhVien sv);
 void xuatDanhSachSinhVien(SinhVien a[], int n);
-void tinhDiemTrungBinh(SinhVien &sv);
+float tinhDiemTrungBinh(SinhVien &sv);
 void sapXepSinhVienTheoDTB(SinhVien a[], int n);
 float kiemTraSinhVienDTBCaoNhat(SinhVien a[], int n);
 void xuatSinhVienDTBCaoNhat(SinhVien a[], int n);
@@ -64,7 +64,7 @@ void sapXepSinhVienTheoDTB(SinhVien a[], int n){
     SinhVien temp;
     for(int i = 0; i < n - 1; i++){
         for(int j = i + 1; j < n; j++){
-            if(a[i].diemTrungBinh > a[j].diemTrungBinh){
+            if(tinhDiemTrungBinh(a[i]) > tinhDiemTrungBinh(a[j])){
                 temp = a[i];
                 a[i] = a[j];
                 a[j] = temp;
@@ -76,8 +76,8 @@ float kiemTraSinhVienDTBCaoNhat(SinhVien a[], int n){
     float diemCaoNhat = 0;
     char c[20];
     for(int i = 0; i < n; i++){
-	if(diemCaoNhat < a[i].diemTrungBinh){
-		diemCaoNhat = a[i].diemTrungBinh;
+	if(diemCaoNhat < tinhDiemTrungBinh(a[i])){
+		diemCaoNhat = tinhDiemTrungBinh(a[i]);
 	}
     }
     return diemCaoNhat;
@@ -87,7 +87,7 @@ void xuatSinhVienDTBCaoNhat(SinhVien a[], int n){
     printf("\nSinh vien co DTB cao nhat la: %.2f", kiemTra);
     int b;
     for(int i = 0; i < n; i++){
-	if(kiemTra == a[i].diemTrungBinh){
+	if(kiemTra == tinhDiemTrungBinh(a[i])){
 		b = i;
 	}
     }
