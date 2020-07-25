@@ -40,7 +40,6 @@ void nhap(SinhVien &sv){
     scanf("%d", &sv.tuoi);
     printf("\nNhap diem 3 mon: "); 
     scanf("%f%f%f", &sv.diemToan, &sv.diemLy, &sv.diemHoa);
-    tinhDiemTrungBinh(sv);
 }
 void nhapDanhSachSinhVien(SinhVien a[], int n){
     for(int i = 0; i < n; i++){
@@ -48,11 +47,12 @@ void nhapDanhSachSinhVien(SinhVien a[], int n){
     }
 }
 void xuat(SinhVien sv){
+    float diemTrungBinh = tinhDiemTrungBinh(sv);
     printf("\nHo ten Sinh Vien: %s", sv.ten);
     printf("\nGioi tinh: %s", sv.gioiTinh);
     printf("\nTuoi: %d", sv.tuoi);
     printf("\nDiem Toan - Ly - Hoa: %.2f - %.2f - %.2f", sv.diemToan, sv.diemLy, sv.diemHoa);
-    printf("\nDiem Trung Binh: %.2f", sv.diemTrungBinh);
+    printf("\nDiem Trung Binh: %.2f", diemTrungBinh);
 }
 void xuatDanhSachSinhVien(SinhVien a[], int n){ 
     for(int i = 0;i < n; ++i){
