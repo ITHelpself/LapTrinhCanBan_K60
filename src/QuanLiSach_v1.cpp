@@ -20,7 +20,7 @@ void nhapSach(int *n, Sach *&sach){
         scanf("%d",&(sach+i)->id);
         fflush(stdin);
         printf("Nhap name: ");
-        gets(&*(sach+i)->name);
+        gets((sach+i)->name);
     }
 }
 void xuatSach(int n, Sach sach[]){
